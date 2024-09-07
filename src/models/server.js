@@ -1,10 +1,11 @@
 const express = require('express');
+const { DBConnection } = require('../database/dbConnect');
 
 class Server {
 
     constructor() {
         this.app = express();
-        this.port = process.env.PORT || 3000;
+        this.port = process.env.PORT || 8080;
         this.path = {
             auth: '/auth'
         };
@@ -12,25 +13,25 @@ class Server {
         this.routes();
         this.middlewares();
 
-    }
+    };
 
     async dbConnect() {
-        console.log(":D");
-    }
+        await DBConnection();
+    };
 
     routes() {
         this.app.use(this.path.auth, require('../routes/auth.route'));
-    }
+    };
 
     middlewares() {
         console.log("");
-    }
+    };
 
     listen() {
         this.app.listen(this.port, () => {
             console.log(`Server is running on port ${this.port}`);
         });
     };
-}
+};
 
 module.exports = { Server };

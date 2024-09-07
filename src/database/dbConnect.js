@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-async function connection() {
+async function DBConnection() {
     try {
-
-        await mongoose.connect(`mongodb+srv://${process.env.USERDB}:${process.env.PASSDB}@artisanaproject.taphx.mongodb.net/ARTISANA?retryWrites=true&w=majority&appName=ArtisanaProject`);
+        
+        await mongoose.connect(`mongodb+srv://${process.env.USERDB}:${process.env.PASSDB}@artisanaproject.taphx.mongodb.net/ArtisanaDB?retryWrites=true&w=majority&appName=ArtisanaProject`);
 
         console.log('Connected to DB');
 
@@ -14,4 +14,6 @@ async function connection() {
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
     }
-}
+};
+
+module.exports = { DBConnection };
