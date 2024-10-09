@@ -24,12 +24,14 @@ const loginPost = async (req, res) => {
         const user = await User.findOne({ username });
 
         if (!user || !user.status) {
-            return res.status(404).redirect('/auth/login?error=User not found');
-        }
+            return res.status(404).redirect('/auth/login?error=Usuario no encontrado');
+        };
 
-        if (!decrypt(password, user.password)) {
-            return res.status(401).redirect('/auth/login?error=Invalid password');
-        }
+        passwordMatch = await (decrypt(password, user.password));
+        
+        if (!passwordMatch) {
+            return res.status(401).redirect('/auth/login?error=Contraseña invalida');
+        };
 
         const generatedToken = generateJWT(user);
         

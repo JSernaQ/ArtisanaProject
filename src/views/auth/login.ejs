@@ -67,6 +67,17 @@
     </div>
 </div>
 
+<% if (error) { %>
+    <script>
+        Swal.fire({
+            title: 'Error al iniciar sesión!',
+            text: '<%= error %>',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    </script>
+<% } %>
+
 </body>
 
 </html>
