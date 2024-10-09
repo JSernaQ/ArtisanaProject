@@ -1,0 +1,72 @@
+<%- include('../shared/base', {title: 'Login' }); -%>
+
+<style>
+    .artisana-title {
+        font-size: 140px; 
+        font-family: 'Island Moments', cursive;
+    }
+
+    .forgot-password {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .left-container {
+        z-index: 50;
+        height: 100vh;
+        width: 50%;
+        left: 0;
+        top: 0; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-custom {
+            background-color: #5a4033;
+            color: #ffffff;
+            width: 100%;
+        }
+
+    .right-container {
+        background-color: #FFF4EE;
+        height: 100vh;
+        width: 50%;
+        right: 0;
+        top: 0;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+</style>
+
+<div class="left-container position-absolute">
+    <h2 class="text-center mt-5 artisana-title">Artisana</h2>
+</div>
+
+<div class="right-container position-absolute">
+    <div class="bg-white p-4 rounded shadow">
+
+        <form action="/auth/login" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+            </div>
+        
+            <button type="submit" class="btn btn-dark w-100 btn-custom mt-2">Sign In</button>
+            <div class="forgot-password">
+                <a href="#">Forgot password?</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+
+</html>
