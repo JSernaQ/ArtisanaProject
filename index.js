@@ -1,6 +1,6 @@
-const { Server } = require("./src/models/server");
-const server = new Server();
+const { Server } = require('./src/server');
+const server = new Server;
 require('dotenv').config()
 
-server.dbConnect();
+server.DBConnect();
 server.listen();
